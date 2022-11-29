@@ -1,0 +1,193 @@
+\section{Method}
+The literature review of this paper will use the literature review steps presented by [\cite{bjo_2012}]. However with some of the steps omitted as they are either: already part of the process in other steps or unnecessary for the purpose of this report.
+
+The steps to be followed from [\cite{bjo_2012}] is: (1) searching, (2) assessing, and (3) Critical review. In this sections how searching and assessing was structured will be discussed in detail. Details on how the critical review were prepared for \autoref{sec:results} will also be discussed.
+
+%The method for this study is a literature review which uses backward snowballing to explore literature. This section describes the method and how the method was implemented.
+
+%\subsection{Research method}
+
+%\subsubsection{Keywords} \label{sec:keywords}
+%Before the initial search after papers were conducted, the following set of keywords where chosen based on the research questions: \textit{Usability tests, Usability test challenges, Recruitment, Recruitment challenges, Candidates, Qualified candidates, Public sector}
+
+%\subsubsection{Search strategy}
+%The initial search for papers which would be the basis of the literature review were initially done by searching for papers which included all keywords described in \autoref{sec:keywords} in Google Scholar. However this yielded no papers of interest to the research questions and the search was altered to include papers which includes some of the keywords. Some string-based searches such as "problems in usability testing" were also conducted to find papers. After a base of papers were formed, backward snowballing was conducted in the references of the chosen papers.
+
+\subsection{Searching}
+\autoref{tab:research-concepts} represents research concepts and relative terms derived from research questions. As encouraged by [\cite{bjo_2012}], these concepts and relative terms are used to create search queries for tools that index academic research, such as Google Scholar, Scopus and Web of Science. The search query created with the use boolean operators on the form: AND between each column $(concept \land concept)$ and OR between each row $(term \lor term)$. With the exception of the last two concepts, where AND NOT is between. This gave the following query:
+
+\begin{center}
+$(what-term \lor what-term \lor ...) \land (user-term \lor user-term \lor ...) \land (purpose-term \lor purpose-term \lor ...) \land \neg(exclusion-term \lor exclusion-term \lor ...)$
+\end{center}
+
+Additional search parameters from \autoref{tab:paper-selection} as "Published in English" and "Published after 2005" is used. Initial search attempts were performed in Google Scholar, however these attempts proved to be difficult as Google Scholar's search input was limited. The following search query was used in Scopus's "Advanced search" feature:
+
+\begin{lstlisting}[ language=SQL,
+                    deletekeywords={IDENTITY},
+                    deletekeywords={[2]INT},
+                    morekeywords={clustered},
+                    framesep=8pt,
+                    xleftmargin=40pt,
+                    framexleftmargin=40pt,
+                    frame=tb,
+                    framerule=0pt ]
+TITLE-ABS-KEY ( 
+        ( 
+        "usability testing"  OR  "participant recruitment"  
+        OR  "user recruitment"  OR  "usability measurement"  
+        OR  "qualified candidates"  
+        OR  "qualified participants" 
+        )  
+    AND  
+        ( 
+        citizen  OR  government  
+        OR  "public sector"  OR  country 
+        )  
+    AND  
+        ( 
+        usability  OR  transparency  
+        OR  involvement  OR  feedback  
+        OR  participation  OR  knowledge
+        OR challenges OR problems
+        )  
+    AND NOT  
+        ( 
+        results  OR  "qualitative results"  
+        OR  "quantitative results"  
+        OR  "usability testing of"
+        OR  "usability evalution of"
+        OR  "test results" ) 
+)  
+AND 
+    ( LIMIT-TO ( LANGUAGE ,  "English" ) ) 
+AND  
+    ( 
+    LIMIT-TO ( DOCTYPE ,  "ar" )  
+    OR  LIMIT-TO ( DOCTYPE ,  "cp" ) 
+    )  
+AND  
+    ( 
+    LIMIT-TO ( PUBYEAR ,  2022 )  
+    OR  LIMIT-TO ( PUBYEAR ,  2021 )  
+    OR  LIMIT-TO ( PUBYEAR ,  2020 )  
+    OR  LIMIT-TO ( PUBYEAR ,  2019 )
+    -- Years hidden for simplicity
+    OR  LIMIT-TO ( PUBYEAR ,  2006 )
+\end{lstlisting}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llll}
+\hline
+\textbf{What} & \textbf{User} & \textbf{Purpose} & \textbf{Exclusion} \\ \hline
+"usability testing" & citizen & usability & results \\
+"participant recruitment" & government & transparency & "qualitative results"  \\
+"user recruitment" & "public sector" & involvement & "quantitative results" \\
+"usability measurement" & country & feedback & "usability testing of" \\
+"qualified candidates" &  & participation & "usability evaluation of" \\
+"qualified participants" &  & knowledge & "test results"  \\
+ & & challenges & \\
+ & & problems & \\ \hline
+\end{tabular}
+\caption{Research concepts and relative terms derived from research questions}
+\label{tab:research-concepts}
+\end{table}
+
+The search query in Scopus resulted in 103 document results (11.11.2022), where only 7 papers were found relevant in regards to the criteria in \autoref{tab:research-concepts} and \autoref{tab:paper-selection}. Du to the lack of papers a strategy of using search string in Google Scholar were implemented. These search string were designed from the research questions, and would be on the form: "Usability testing challenges", "recruitment of participants for testing" or "problems in usability testing", etc. The papers found in the Google Scholar search and were of quality in relation to \autoref{tab:paper-selection} had their references explored to find more relevant papers.
+
+
+\subsection{Assessing} \label{sec:assessing}
+For a paper to be included in the literature review, it has to comply with with all criteria described in \autoref{tab:paper-selection}. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|l}
+Criteria          & Published in a peer-reviewed journal or conference   \\
+\multirow{4}{*}{} & Published in English \\
+                  & Discusses challenges in usability testing and/or recruitment of participants \\
+                  & Paper must be an empirical study \\
+                  & Published after 2005 \\
+\end{tabular}
+\caption{Paper selection criteria for the literature review}
+\label{tab:paper-selection}
+\end{table}
+
+As recommended by [\cite{bjo_2012}] when only one researcher is conducting a literature review, is to limit the search area of papers to those published in a peer-reviewed journal. [\cite{bjo_2012}] also suggest that including conference papers will provide more recent research and this will increase the searching area of relevant papers. When including conference papers the researcher needs to be careful as these papers are subject to change as they have not been peer-reviewed. The conference these papers originate from should also be well established, brings together industry specialists and has a clear reviewing policy [\cite{bjo_2012}]. Bringing more recent research can be beneficial for the Norwegian public sector, as it is exploring new ways of improving their usability testing.
+
+Finding papers that discusses challenges in usability testing and/or recruit of participants is at the core of the research in relation with the research questions. However due to several reasons the criteria has been expanded beyond "NAV/Public sector" which is specified in the research questions:
+\begin{enumerate}
+    \item Increasing the search results for this topic, as early exploration of papers with the inclusion of "public sector" led to no/small amount of results.
+    \item Differences in countries public sector can lead to differences in research findings, meaning a countries findings might not be relevant for the Norwegian public sector. 
+\end{enumerate}
+
+The reasoning behind the "published after 2005" criteria have to reasons: (1) NAV was founded in 2006, (2) Recent literature. NAV was founded in 2006 [\cite{nav_2022}] with the merger of the National Insurance Service, Aetat and the municipal social service. This lead to a new perspective on how the user "meet" the Norwegian public sector, both physically and digitally. In turn this leads to different goals with the Norwegian public sector's usability testing, as the user now only interacts with 1 system instead of 3.
+
+\subsection{Critical Review}
+For helping in the writing the critical review which results in \autoref{sec:results}, it was recommended by [\cite{bjo_2012}] to create a concept matrix. \autoref{tab:concept-matrix} represents the concept matrix created from mapping the papers that fulfil the criteria in \autoref{tab:paper-selection} to concepts from the research questions.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{llll}
+\hline
+                & \multicolumn{3}{c}{\textbf{Concepts}} \\ \cline{2-4} 
+\textbf{Papers} & \textbf{Usability testing}  & \textbf{Recruitment} & \textbf{Public sector} \\ \hline
+\cite{cb_2014}  & \multicolumn{1}{c}{\textbf{*}}            &            &            \\
+\cite{ola_2019} & \multicolumn{1}{c}{\textbf{*}}            &            &            \\
+\cite{pgd_2020} & \multicolumn{1}{c}{\textbf{*}}            &            &            \\
+\cite{snh_2020} & \multicolumn{1}{c}{\textbf{*}}            &            &            \\
+\cite{dn_2016}  & \multicolumn{1}{c}{\textbf{*}}            &            &            \\
+\cite{pkf_2018} &             & \multicolumn{1}{c}{\textbf{*}}           &            \\
+\cite{aj_2015}  &             & \multicolumn{1}{c}{\textbf{*}}           &            \\       
+\cite{nc_2020}  &             & \multicolumn{1}{c}{\textbf{*}}           &            \\
+\cite{sg_2008}  & \multicolumn{1}{c}{\textbf{*}}            &            &            \\
+\cite{mh_2016}  & \multicolumn{1}{c}{\textbf{*}}            &            &            \\
+\cite{gl_2007}  & \multicolumn{1}{c}{\textbf{*}}            & \multicolumn{1}{c}{\textbf{*}}            &  \\
+\cite{hf_2021}  &             & \multicolumn{1}{c}{\textbf{*}}           &            \\
+\cite{md_2017}  &             & \multicolumn{1}{c}{\textbf{*}}           &            \\
+\cite{lmb_2011} &             & \multicolumn{1}{c}{\textbf{*}}           &            \\
+\cite{hs_2011}  & \multicolumn{1}{c}{\textbf{*}}            &            & \multicolumn{1}{c}{\textbf{*}} \\
+\cite{ds_2014}  & \multicolumn{1}{c}{\textbf{*}}            &            &            \\
+\cite{ln_2012}  & \multicolumn{1}{c}{\textbf{*}}            &            &            \\       
+\cite{pf_2017}  & \multicolumn{1}{c}{\textbf{*}}            &            &            \\ \hline       
+\end{tabular}
+\caption{Matrix for mapping papers to the concepts of the research questions.}
+\label{tab:concept-matrix}
+\end{table}
+ 
+%\subsubsection{Paper quality assessment}
+%The quality of each paper in the literature review will be determined by the criteria described in \autoref{tab:paper-quality-assessment}. Studies that does not meet 4/6 criteria are determined not of quality, and therefore excluded from the literature review.
+
+%\begin{table}[H]
+%\centering
+%\begin{tabular}{l|l}
+%Criteria          & Is the author free of any interests?                  \\
+%\multirow{5}{*}{} & Have key related sources been linked to or discussed? \\
+%                  & Does the paper have a stated methodology?             \\
+%                  & Are any problems to validity stated?                   \\
+%                  & Does the paper have a clearly stated aim?             \\
+%                  & Is the papers relevancy discussed?                   
+%\end{tabular}
+%\caption{Paper quality assessment criteria for the literature review}
+%\label{tab:paper-quality-assessment}
+%\end{table}
+
+%\subsubsection{Data Extraction}
+%In order to to answer the research questions, a data extraction form described in \autoref{tab:data-extraction} were created and filled out for each paper reviewed. Some fields are marked with the research question the data field is relevant for.
+
+%\begin{table}[H]
+%\centering
+%\begin{tabular}{l|l}
+%Data field        & Description                                                   \\ \hline
+%Author            & Name of authors(s)                                            \\
+%Publication date  & When the paper was published                                  \\
+%Usability tests   & Challenges/Problems with usability testing (RQ1)                   \\
+%Recruitment       & Challenges in recruitment of participents for usability tests (RQ1, RQ2) \\
+%Recruitment tools & Tools that improve the recruitment of qualified participents (RQ3)  \\
+%Notes             & Anything extra that needs to be noted                        
+%\end{tabular}
+%\caption{Form for data extraction of the papers in the literature review}
+%\label{tab:data-extraction}
+%\end{table}
+
+%\subsubsection{Data Synthesis}
+%As with most literature reviews, the data synthesis will be done by using a thematic analysis. First the relevant literature will be coded, then a review of possible themes and finally attempting to articulate any findings.
